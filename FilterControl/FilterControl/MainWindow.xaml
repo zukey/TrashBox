@@ -4,7 +4,7 @@
         Title="MainWindow" Height="809.7" Width="781">
     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
         <Grid>
-            <DataGrid HorizontalAlignment="Left" Height="120" Margin="37,0,0,26" VerticalAlignment="Bottom" Width="697"/>
+            <DataGrid Name="DataGrid1" HorizontalAlignment="Left" Height="120" Margin="37,0,0,26" VerticalAlignment="Bottom" Width="697"/>
             <Expander Header="Expander" HorizontalAlignment="Left" Margin="37,56,0,0" VerticalAlignment="Top" Width="656" Height="198">
                 <Grid Background="#FFE5E5E5" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Stretch">
                     <Grid.ColumnDefinitions>
@@ -27,6 +27,7 @@
                 
                 </StackPanel>
             </Expander>
+            <Button Name="Binding" Content="Button" HorizontalAlignment="Left" Height="135" Margin="709,10,0,0" VerticalAlignment="Top" Width="44" Click="Binding_Click"/>
 
         </Grid>
     </ScrollViewer>

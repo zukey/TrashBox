@@ -20,9 +20,18 @@ namespace FilterControl
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<SampleData> sampleData;
+
         public MainWindow()
         {
             InitializeComponent();
+            sampleData = new List<SampleData>();
+            sampleData.Add(new SampleData() { Name = "Data1", Val = 10, Selection = SampleEnum.Item1 });
+            sampleData.Add(new SampleData() { Name = "Data2", Val = 20, Selection = SampleEnum.Item2 });
+            sampleData.Add(new SampleData() { Name = "Data3", Val = 30, Selection = SampleEnum.Item3 });
+
+            var dataGrid = FindName("DataGrid1") as DataGrid;
+            dataGrid.DataContext = sampleData;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -47,6 +56,12 @@ namespace FilterControl
 
             panel.Children.Add(newPanel);
 
+        }
+
+        private void Binding_Click(object sender, RoutedEventArgs e)
+        {
+            var dlg = new Binding();
+            dlg.ShowDialog();
         }
     }
 }
