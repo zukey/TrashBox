@@ -63,5 +63,11 @@ namespace FilterControl
             var dlg = new Binding();
             dlg.ShowDialog();
         }
+
+        private void Validation_Click(object sender, RoutedEventArgs e)
+        {
+            var dlg = new ValidationWindow();
+            dlg.ShowDialog();
+        }
     }
 }

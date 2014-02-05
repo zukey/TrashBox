@@ -8,13 +8,14 @@
         <myApp:EnumBoolConvertor x:Key="enumConverter"/>
     </Window.Resources>
     <Grid DataContext="{StaticResource vm}">
-        <GroupBox Header="GroupBox" HorizontalAlignment="Left" Height="114" Margin="39,47,0,0" VerticalAlignment="Top" Width="182">
+        <GroupBox Header="GroupBox" HorizontalAlignment="Left" Height="81" Margin="39,47,0,0" VerticalAlignment="Top" Width="182">
             <StackPanel>
                 <RadioButton Content="RadioButton" GroupName="1" IsChecked="{Binding Path=Sel, Converter={StaticResource enumConverter}, ConverterParameter=Data1}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="96"/>
                 <RadioButton Content="RadioButton" GroupName="2" IsChecked="{Binding Path=Sel, Converter={StaticResource enumConverter}, ConverterParameter=Data2}"  HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="96"/>
             </StackPanel>
         </GroupBox>
         <Button Content="Button" HorizontalAlignment="Left" Height="29" Margin="104,193,0,0" VerticalAlignment="Top" Width="117" Click="Button_Click"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="40,145,0,0" TextWrapping="Wrap" Text="{Binding Val}" VerticalAlignment="Top" Width="181" />
 
     </Grid>
 </Window>

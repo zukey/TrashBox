@@ -28,6 +28,7 @@
                 </StackPanel>
             </Expander>
             <Button Name="Binding" Content="Button" HorizontalAlignment="Left" Height="135" Margin="709,10,0,0" VerticalAlignment="Top" Width="44" Click="Binding_Click"/>
+            <Button Name="Validation" Content="Button" HorizontalAlignment="Left" Height="31" Margin="225,10,0,0" VerticalAlignment="Top" Width="106" Click="Validation_Click"/>
 
         </Grid>
     </ScrollViewer>

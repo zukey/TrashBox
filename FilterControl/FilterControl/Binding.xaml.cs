@@ -36,6 +36,7 @@ namespace FilterControl
     public class BindingViewModel
     {
         public Selection Sel { get; set; }
+        public int Val { get; set; }
     }
 
     public enum Selection
@@ -44,6 +45,7 @@ namespace FilterControl
         Data2,
     }
 
+    [ValueConversion(typeof(Enum), typeof(bool))]
     public class EnumBoolConvertor : IValueConverter
     {
         // Enum To Bool

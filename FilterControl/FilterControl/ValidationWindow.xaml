@@ -1,0 +1,51 @@
+﻿<Window x:Class="FilterControl.ValidationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:my="clr-namespace:FilterControl"
+        Title="ValidationWindow" Height="300" Width="300">
+    <Window.Resources>
+        <my:ValidationWindowViewModel x:Key="vm"/>
+        <Style TargetType="FrameworkElement" x:Key="validateItemStyle">
+            <Setter Property="ToolTip" Value="{x:Null}"/>
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter Property="ToolTip" >
+                        <Setter.Value>
+                            <Binding RelativeSource="{RelativeSource Self}" Path="(Validation.Errors)[0].ErrorContent"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <StackPanel Name="layoutRoot" DataContext="{StaticResource vm}" Margin="20,10" Validation.ErrorTemplate="{x:Null}" >
+        <StackPanel.BindingGroup>
+            <BindingGroup>
+                <BindingGroup.ValidationRules>
+                    <my:GroupValidationRule />
+                </BindingGroup.ValidationRules>
+            </BindingGroup>
+        </StackPanel.BindingGroup>
+        <TextBox Name="text1" Margin="0,5" Style="{StaticResource validateItemStyle}">
+            <TextBox.Text>
+                <Binding Path="Text1">
+                    <Binding.ValidationRules>
+                        <my:IntInputTextValidationRule MinValue="0" Required="True"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <TextBox Text="{Binding Path=Text2}" Margin="0,5" />
+        <DatePicker Name="date1" Margin="0,5" Style="{StaticResource validateItemStyle}" >
+            <DatePicker.SelectedDate>
+                <Binding Path="Date1">
+                    <Binding.ValidationRules>
+                        <my:DateValidationRule Required="True"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </DatePicker.SelectedDate>
+        </DatePicker>
+         
+        <Button Name="btnCheck" Content="チェック" Click="btnCheck_Click"/>
+    </StackPanel>
+</Window>
